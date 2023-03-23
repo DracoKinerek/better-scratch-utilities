@@ -1,8 +1,8 @@
-class ScratchMath {
+class MathPlus {
   getInfo() {
     return {
-      id: 'scratchmath', // change this if you make an actual extension!
-      name: 'Math',
+      id: 'mathplus', // change this if you make an actual extension!
+      name: 'MathPlus',
       color1: '#18e70d',
       color2: '#0fcf0a',
       blocks: [
@@ -30,7 +30,7 @@ class ScratchMath {
          {
           opcode: 'pi',
           blockType: Scratch.BlockType.REPORTER,
-          text: 'Pi',
+          text: 'π',
           disableMonitor: true
         },
         {
@@ -53,7 +53,7 @@ class ScratchMath {
         {
           opcode: 'gret',
           blockType: Scratch.BlockType.BOOLEAN,
-          text: '[ONE] >= [TWO]',
+          text: '[ONE] ≥ [TWO]',
           arguments: {
             ONE: {
               type: Scratch.ArgumentType.NUMBER,
@@ -68,7 +68,7 @@ class ScratchMath {
         {
           opcode: 'ltet',
           blockType: Scratch.BlockType.BOOLEAN,
-          text: '[ONE] <= [TWO]',
+          text: '[ONE] ≤ [TWO]',
           arguments: {
             ONE: {
               type: Scratch.ArgumentType.NUMBER,
@@ -83,7 +83,7 @@ class ScratchMath {
         {
           opcode: 'powersboi',
           blockType: Scratch.BlockType.REPORTER,
-          text: '[ONE] ^ [TWO]',
+          text: '[ONE] ** [TWO]',
           arguments: {
             ONE: {
               type: Scratch.ArgumentType.NUMBER,
@@ -98,7 +98,7 @@ class ScratchMath {
         {
           opcode: 'rootthingy',
           blockType: Scratch.BlockType.REPORTER,
-          text: '[ONE] root of [TWO]',
+          text: '[ONE]th root of [TWO]',
           arguments: {
             ONE: {
               type: Scratch.ArgumentType.NUMBER,
@@ -108,6 +108,24 @@ class ScratchMath {
               type: Scratch.ArgumentType.NUMBER,
               defaultValue: '3'
             }
+          }
+        },
+        {
+          opcode: 'mathrandom',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Random',
+          disableMonitor: true
+          
+        },
+        {
+          opcode: 'to_bool',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: 'to bool [ONE]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: '2'
+            },
           }
         },
         {
@@ -153,6 +171,9 @@ class ScratchMath {
   }
   rootthingy(args) {
     return args.TWO ** (1/args.ONE);
+  }
+  to_bool(args){
+    return true ? args.ONE : false
   }
   mathrandom() {
     return Math.random();
